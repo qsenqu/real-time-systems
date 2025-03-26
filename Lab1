@@ -1,19 +1,20 @@
 #include <stdio.h>
 
 unsigned long long int integer_sqrt(unsigned long long int n) {
-    if (n == 0 || n == 1) {
-        return n;
+    if (n == 0 || n == 1) return n;
+
+    unsigned long long int low = 1, high = n, ans = 0;
+    while (low <= high) {
+        unsigned long long int mid = (low + high) >> 1;  // Замена деления на 2 сдвигом
+        if (mid * mid == n) return mid;
+        if (mid * mid < n) {
+            low = mid + 1;
+            ans = mid;
+        } else {
+            high = mid - 1;
+        }
     }
-
-    unsigned long long int x = n;
-    unsigned long long int y = (x + n / x) / 2;
-
-    while (y < x) {
-        x = y;
-        y = (x + n / x) / 2;
-    }
-
-    return x;
+    return ans;
 }
 
 int main() {
