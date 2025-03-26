@@ -5,7 +5,7 @@ unsigned long long int integer_sqrt(unsigned long long int n) {
 
     unsigned long long int low = 1, high = n, ans = 0;
     while (low <= high) {
-        unsigned long long int mid = (low + high) >> 1;  // Замена деления на 2 сдвигом
+        unsigned long long int mid = (low + high) >> 1;  
         if (mid * mid == n) return mid;
         if (mid * mid < n) {
             low = mid + 1;
