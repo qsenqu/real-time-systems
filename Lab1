@@ -1,20 +1,20 @@
 #include <stdio.h>
 
-unsigned long long int integer_sqrt(unsigned long long int n) {
+unsigned long long int sqrt(unsigned long long int n) {
     if (n == 0 || n == 1) return n;
 
-    unsigned long long int low = 1, high = n, ans = 0;
+    unsigned long long int answear = 0, low = 1, high = n;
     while (low <= high) {
         unsigned long long int mid = (low + high) >> 1;  
         if (mid * mid == n) return mid;
         if (mid * mid < n) {
             low = mid + 1;
-            ans = mid;
+            answear = mid;
         } else {
             high = mid - 1;
         }
     }
-    return ans;
+    return answear;
 }
 
 int main() {
@@ -22,7 +22,7 @@ int main() {
     printf("Введите число: ");
     scanf("%llu", &number);
     
-    unsigned long long int result = integer_sqrt(number);
+    unsigned long long int result = sqrt(number);
     printf("Целочисленный квадратный корень из %llu равен %llu\n", number, result);
     
     return 0;
