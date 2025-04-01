@@ -1,4 +1,4 @@
-: sqrt-int
+: square_root
     dup 0< if
         drop -1 exit
     then
@@ -24,8 +24,8 @@
 ;
 
 : main
-    25 \ фиксированное значение; 
-    sqrt-int . cr
+    100 \ фиксированное значение
+    square_root . cr
 ;
 
 main
